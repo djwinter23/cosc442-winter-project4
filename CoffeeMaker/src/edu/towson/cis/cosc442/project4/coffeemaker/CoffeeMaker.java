@@ -72,7 +72,8 @@ public class CoffeeMaker {
         if(r != null) {
 	        for(int i = 0; i < NUM_RECIPES; i++) {
 	            if(r.equals(recipeArray[i])) {
-	                recipeArray[i] = recipeArray[i]; 
+	               //What does this do? Probably missing a this reference
+	            	//this.recipeArray[i] = recipeArray[i];
 	                canDeleteRecipe = true;
 	            }
 	        }
