@@ -45,7 +45,7 @@ public class InventoryTest {
 		throws Exception {
 		Inventory fixture = InventoryFactory.createInventory();
 		Recipe r = new Recipe();
-
+		
 		boolean result = fixture.enoughIngredients(r);
 
 		// add additional test code here
@@ -64,7 +64,12 @@ public class InventoryTest {
 		throws Exception {
 		Inventory fixture = InventoryFactory.createInventory();
 		Recipe r = new Recipe();
-
+		r.setName("Coffee");
+		r.setPrice(50);
+		r.setAmtCoffee(15);
+		r.setAmtMilk(15);
+		r.setAmtSugar(15);
+		r.setAmtChocolate(15);
 		boolean result = fixture.enoughIngredients(r);
 
 		// add additional test code here
@@ -180,7 +185,8 @@ public class InventoryTest {
 		// add additional test code here
 		assertEquals(1, fixture.getChocolate());
 	}
-
+	
+	
 	/**
 	 * Run the void setCoffee(int) method test.
 	 *

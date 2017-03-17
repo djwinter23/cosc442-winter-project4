@@ -84,9 +84,13 @@ public class CoffeeMakerTest {
 		int amtChocolate = 2;
 
 		boolean result = fixture.addInventory(amtCoffee, amtMilk, amtSugar, amtChocolate);
-
+		Inventory increasedInventory = fixture.checkInventory();
 		// add additional test code here
 		assertEquals(true, result);
+		assertEquals(18, increasedInventory.getCoffee());
+		assertEquals(19, increasedInventory.getMilk());
+		assertEquals(16, increasedInventory.getSugar());
+		assertEquals(17, increasedInventory.getChocolate());
 	}
 
 	/**
@@ -100,15 +104,15 @@ public class CoffeeMakerTest {
 	public void testAddInventory_3()
 		throws Exception {
 		CoffeeMaker fixture = CoffeeMakerFactory.createCoffeeMaker();
-		int amtCoffee = -1;
-		int amtMilk = 1;
-		int amtSugar = 1;
-		int amtChocolate = 1;
+		int amtCoffee = 0;
+		int amtMilk = 0;
+		int amtSugar = 0;
+		int amtChocolate = 0;
 
 		boolean result = fixture.addInventory(amtCoffee, amtMilk, amtSugar, amtChocolate);
 
 		// add additional test code here
-		assertEquals(false, result);
+		assertEquals(true, result);
 	}
 
 	/**
@@ -599,13 +603,17 @@ public class CoffeeMakerTest {
 		r.setAmtCoffee(3);
 		r.setAmtMilk(1);
 		r.setAmtSugar(1);
-		r.setAmtChocolate(0);
+		r.setAmtChocolate(1);
 		int amtPaid = 60;
 		
 		int result = fixture.makeCoffee(r, amtPaid);
-
+		Inventory decreasedInventory = fixture.checkInventory();
 		// add additional test code here
 		assertEquals(10, result);
+		assertEquals(12, decreasedInventory.getCoffee());
+		assertEquals(14, decreasedInventory.getMilk());
+		assertEquals(14, decreasedInventory.getSugar());
+		assertEquals(14, decreasedInventory.getChocolate());
 	}
 
 	/**
@@ -626,12 +634,12 @@ public class CoffeeMakerTest {
 		r.setAmtMilk(1);
 		r.setAmtSugar(1);
 		r.setAmtChocolate(0);
-		int amtPaid = 1;
+		int amtPaid = 50;
 
 		int result = fixture.makeCoffee(r, amtPaid);
 
 		// add additional test code here
-		assertEquals(1, result);
+		assertEquals(0, result);
 	}
 
 	/**
